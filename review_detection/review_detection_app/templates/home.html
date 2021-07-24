@@ -1,0 +1,257 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Review Detection</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="css/flaticon.css"/>
+	<link rel="stylesheet" href="css/owl.carousel.css"/>
+	<link rel="stylesheet" href="css/magnific-popup.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+
+    <style type="text/css">
+
+    	.topnav {
+		  overflow: hidden;
+		  background-color: #333;
+		  width:100%;
+		  position: fixed;
+		}
+
+		.topnav a {
+		  float: left;
+		  color: #f2f2f2;
+		  text-align: center;
+		  padding: 14px 16px;
+		  text-decoration: none;
+		  font-size: 17px;
+		}
+
+		.topnav a:hover {
+		  background-color: #ddd;
+		  color: black;
+		}
+
+		.topnav-right {
+		  float: right;
+		}
+
+    	header {
+    		text-align: center;
+			background: #99ccff;
+    		color: black;
+    	}
+
+    	header .container {
+    		padding-top: 60px;
+    		padding-bottom: 40px;
+    		z-index: 1
+    	}
+
+    	header .intro-text {
+    		display: block;
+    		font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    		text-transform: uppercase;
+    		font-weight: 700;
+    		font-size: 2em;
+    	}
+
+    	@media (min-width: 768px) {
+    		header .container { padding-top: 120px; padding-bottom: 70px; }
+    		header .intro-text .name { font-size: 4.75em; }
+    		header .intro-text .skills { font-size: 2em; }
+    	}
+
+    	.navbar-custom {
+    		background: #2C3E50;
+    		font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    		text-transform: none;
+    		font-weight: 700;
+			font-size: x-large;
+    		border: none;
+			padding-left: 5%;
+			padding-right: 5%;
+    		text-align: center;
+    		color: white;
+    		width: 100%;
+    	}
+
+    	hr{
+    		border-top-color: black;
+    	}
+
+		#id_url {
+			width: 70%;
+			margin: 0 auto;
+			color: black;
+			font-weight: 100;
+			font-size: medium;
+		}
+
+		.maincontent {
+			display:block;
+		}
+
+		.loader {
+			margin-top: 10%;
+			display: none;
+		}
+
+		.loader img {
+			height: 200px;
+		}
+		p{
+			color: black;
+		}
+
+		.footer{
+			background-color: black;
+			align-content: center;
+			color: white;
+			height: 40px;
+		}
+		.footer p{
+			text-align: center;
+			color: white;
+			font-size: 25px;
+		}
+
+		#sample1{
+			height:30%;
+			text-align: center;
+			padding: 0px 150px 0px 150px;
+		}
+	
+		#sample2{
+			height: 350px;
+			text-align: center;
+			padding: 0px 150px 0px 150px;
+		}
+
+    </style>
+
+</head>
+
+<body class="index homepage">
+
+	<div class="topnav">
+	  <a href="#form">Review Detection</a>
+	  <div class="topnav-right">
+	    <a href="#about">About the App</a>
+	    <a href="#contact">Contact Us</a>
+	  </div>
+	</div>
+
+
+	<header>
+		<div class="container" id="form">
+			<div class="row maincontent">
+				<div class="intro-text">
+					<h1> Not sure Product reviews are Fake or Real? </h1>
+					<h2> Check here &#8595;</h2>
+					<hr class="star-light">
+					<br/>
+				</div>
+
+				<form method="post" onsubmit="return showLoader();">
+
+					{% csrf_token %}
+					<div class="input-group" style="margin: 0 auto;">
+						<label><h2>Enter URL</h2></label><br>
+					</div>
+
+					{{ form.url }}
+
+					<br/><br/><br/>
+					<input class="btn btn-primary" type="submit" value="Submit" style="font-size: 20px;">
+
+				</form>
+				<br><br><br><br><br><br><br>
+				<br id="about"><br>
+				<hr>
+				<h2 ><b> About the App </b></h2>
+				<hr>
+				<h4 style="text-align: left"><p>People prefer to read reviews about a product before spending their money. If reviews are mostly positive, they tend to buy product.Significance of reviews is misused by parties who create fake reviews to increase popularity of their product or to defame product of competitors. Some good reviews are added by product company to produce fake positive review. Other companies defame product of competitors by giving fake negative reviews due to competition. Hence, people come across mixed reviews. This App is a system which detects fake reviews by using Classification Machine learning Model. </p>
+				<br>
+
+				<p>One of the reasons people love shopping on <b>Amazon</b> <i class="fa fa-amazon" style="font-size:24px;color:#00008B"></i> is that you can see all of the product ratings and reviews provided by other customers. In theory, these reviews and ratings help you know which products are good and which are bad. Unfortunately, many of the Amazon reviews cannot be trusted.</p>
+				<br>
+
+				<p><b>How to use this app?</b></p>
+				<p><b style='font-size:30px;'>&#8688;</b> All you need to do is to copy the URL of Your product from Amazon and then paste on the search bar as shown in the picture below.</p>
+
+				<p style="margin-top: 15px"><b style='font-size:30px;'>&#8688;</b> It will take some time to fetch the reviews from amazon and then the result will be provided.</p>
+				<br>
+
+				<p><b>What will be there in the result?</b></p>
+				<p>The result will consist of:</p>
+				<p><b style='font-size:30px;'>&#8688;</b> Adjusted Rating:</p>
+				<p>Adjusted rating is the rating calculated after taking only the genuine ratings. It may be greater or smaller or equal than the actual rating depending on the defective reviews.</p>
+				<br>
+				<img src="{% static 'adjusted.PNG' %}" id="sample1"><img>
+
+				<p style="margin-top: 15px"><b style='font-size:30px;'>&#8688;</b> Pie chart of Defective and True reviews:</p>
+				<p>This Pie Chart is Used to represent the percentage of deceptive and genuine reviews of the product. The Red part of the chart consist total precentage of Deceptive reviews whereas the Green part consist total precentage of Genuine reviews.</p>
+				<br>
+				<img src="{% static 'pie.PNG' %}" id="sample2"><img>
+
+				<p style="margin-top: 15px"><b style='font-size:30px;'>&#8688;</b>Double Bar Graph of Fake and true reviews as per Star rating:</p>
+				<p>The double bar graph on the left scale consist of star rating from 1-5. The light blue bar is used to represent the count of Genuine reviews for the provided rating and dark blue bar is used to represent the count of Deceptive reviews for the provided rating.</p>
+				<br>
+				<img src="{% static 'bar.PNG' %}" id="sample2"><img>
+				<br>
+
+				<p style="margin-top: 15px"><b style='font-size:30px;'>&#8688;</b>Most Helpful Reviews</p>
+				<p>This is used to show the top most three helpful reviews provided by customers.It will show the title of the review, content of the review, the star rating provided and the votes of people who find it helpful and the date of review. </p>
+				<br>
+				<img src="{% static 'Helpful.PNG' %}" id="sample2"><img>
+				<br><br><br>
+				<p style="color: #00008B;margin-top: 25px; font-size: 30px"><b>Note:</b> Make sure you use the URL from Amazon <i class="fa fa-amazon" style="font-size:24px;color:black"></i>.</p>
+				</h4>
+
+				<br><br><br><br><br><br><br>
+
+				<hr id="contact">
+				<h2><b> Contact Us</b></h2>
+				<hr>
+				<h3 style="text-align: center">
+					<p>For any queries regarding the app Message us on the provided Email:</p>
+					<p><span>&#9993;</span>bhalodiahr@rknec.edu</p>
+                    <p><span>&#9993;</span>gajranibm@rknec.edu</p>
+                    <p><span>&#9993;</span>agrawalkd_1@rknec.edu</p>
+                    <br><br><br><br><br><br><br><br><br><br><br>
+				</h3>
+
+			</div>
+
+			<div class="row loader" style="height:100%">
+				<img src="{% static 'load.gif' %}"></img>
+				<br><br>
+				<h3><b>Your reviews are being processed...</b></h3>
+				<h3><b>Please wait...</b></h3>
+			</div>
+		</div>
+	</header>
+
+	<div class="footer maincontent">
+  		<p>Thank You for using this app. Hope it helped!</p>
+	</div>
+</body>
+
+<script>
+	function showLoader() {
+		document.getElementsByClassName("maincontent")[0].style.display = "none";
+		document.getElementsByClassName("maincontent")[1].style.display = "none";
+		document.getElementsByClassName("loader")[0].style.display = "block";
+	}
+</script>
+
+</html>
